@@ -12,6 +12,7 @@ import {
 
 import { SneakersScreen } from './src/features/sneakers/screens/sneakers.screen';
 import { theme } from './src/infrastructure/theme';
+import { SneakersContextProvider } from './src/context/sneakers/sneakers.context';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,8 +28,10 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <SneakersScreen />
-        <StatusBar style='auto' />
+        <SneakersContextProvider>
+          <SneakersScreen />
+          <StatusBar style='auto' />
+        </SneakersContextProvider>
       </ThemeProvider>
     </>
   );

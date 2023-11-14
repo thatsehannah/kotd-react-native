@@ -4,10 +4,10 @@ import { Button } from 'react-native-paper';
 import { colors } from '../../../infrastructure/theme/colors';
 
 export const SneakerContainer = styled.View`
-  height: 450px;
-  padding: 20px;
+  height: 460px;
   background-color: #ededed;
   border-radius: 20px;
+  padding: 10px 20px;
 `;
 
 export const SneakerName = styled.Text`
@@ -20,16 +20,17 @@ export const SneakerName = styled.Text`
 export const ImageContainer = styled.View`
   align-items: center;
   width: 100%;
-  height: auto;
+  height: 300px;
 `;
 
 export const SneakerImage = styled.Image`
-  height: 300px;
-  width: 300px;
+  height: 280px;
+  width: 280px;
+  overflow: hidden;
 `;
 
 export const WearButtonContainer = styled.View`
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const WearButton = styled(Button).attrs({

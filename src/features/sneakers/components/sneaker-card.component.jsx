@@ -8,6 +8,7 @@ import {
   WearButtonContainer,
   WearButton,
 } from './sneaker-card.styles';
+import { Spacer } from '../../../components/spacer/spacer.component';
 
 export const SneakerCard = ({ sneaker = {} }) => {
   const {
@@ -21,44 +22,28 @@ export const SneakerCard = ({ sneaker = {} }) => {
     },
   } = sneaker;
 
-  const formatDate = (dateString) => {
-    const months = [
-      'Jan.',
-      'Feb.',
-      'Mar.',
-      'Apr.',
-      'May',
-      'Jun.',
-      'Jul.',
-      'Aug.',
-      'Sep.',
-      'Oct.',
-      'Nov.',
-      'Dec.',
-    ];
-
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const monthIndex = date.getMonth();
-    const year = date.getFullYear();
-
-    return `${months[monthIndex]} ${day}, ${year}`;
-  };
-
   return (
     <SneakerContainer>
-      <SneakerName>{name}</SneakerName>
+      <SneakerName numberOfLines={1}>{name}</SneakerName>
       <Text style={{ fontFamily: 'Nunito_300Light_Italic' }}>
-        Last Worn: {formatDate(lastWearDate)}
+        Last Worn: {lastWearDate}
       </Text>
+      <Spacer
+        position='top'
+        size='medium'
+      />
       <ImageContainer>
         <SneakerImage
           resizeMode='stretch'
           source={{ uri: image.thumbnail }}
         />
       </ImageContainer>
+      <Spacer
+        position='top'
+        size='large'
+      />
       <WearButtonContainer>
-        <WearButton>Wear</WearButton>
+        <WearButton onPress={() => console.log(name)}>Wear</WearButton>
       </WearButtonContainer>
     </SneakerContainer>
   );

@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 import { Button } from 'react-native-paper';
 
+import { colors } from '../../../infrastructure/theme/colors';
+
 export const SneakerContainer = styled.View`
   height: 450px;
   padding: 20px;
@@ -26,8 +28,26 @@ export const SneakerImage = styled.Image`
   width: 300px;
 `;
 
+export const WearButtonContainer = styled.View`
+  align-items: center;
+`;
+
 export const WearButton = styled(Button).attrs({
   mode: 'contained',
+  buttonColor: colors.brand.tertiary,
+  contentStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 54,
+    width: 120,
+    paddingVertical: 10,
+  },
+  labelStyle: {
+    fontFamily: 'Nunito_700Bold',
+    color: 'white',
+    fontSize: 20,
+    textAlign: 'center',
+  },
 })`
-  width: 40%;
+  border-radius: 40px;
 `;

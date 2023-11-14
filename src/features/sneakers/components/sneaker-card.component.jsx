@@ -5,6 +5,7 @@ import {
   SneakerImage,
   SneakerName,
   ImageContainer,
+  WearButtonContainer,
   WearButton,
 } from './sneaker-card.styles';
 
@@ -56,9 +57,9 @@ export const SneakerCard = ({ sneaker = {} }) => {
           source={{ uri: image.thumbnail }}
         />
       </ImageContainer>
-      <View style={{ alignItems: 'center' }}>
+      <WearButtonContainer>
         <WearButton>Wear</WearButton>
-      </View>
+      </WearButtonContainer>
     </SneakerContainer>
   );
 };

@@ -1,6 +1,8 @@
-import { useCallback } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, Text, View } from 'react-native';
+
+import { ThemeProvider } from 'styled-components/native';
+
 import {
   useFonts,
   Nunito_400Regular,
@@ -9,6 +11,7 @@ import {
 } from '@expo-google-fonts/nunito';
 
 import { SneakersScreen } from './src/features/sneakers/screens/sneakers.screen';
+import { theme } from './src/infrastructure/theme';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,8 +26,10 @@ export default function App() {
 
   return (
     <>
-      <SneakersScreen />
-      <StatusBar style='auto' />
+      <ThemeProvider theme={theme}>
+        <SneakersScreen />
+        <StatusBar style='auto' />
+      </ThemeProvider>
     </>
   );
 }

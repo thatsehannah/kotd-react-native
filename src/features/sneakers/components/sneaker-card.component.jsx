@@ -1,6 +1,12 @@
-import { View, Text } from 'react-native';
-import { Card } from 'react-native-paper';
-import styled from 'styled-components/native';
+import { View, Text, Image } from 'react-native';
+
+import {
+  SneakerContainer,
+  SneakerImage,
+  SneakerName,
+  ImageContainer,
+  WearButton,
+} from './sneaker-card.styles';
 
 export const SneakerCard = ({ sneaker = {} }) => {
   const {
@@ -14,13 +20,45 @@ export const SneakerCard = ({ sneaker = {} }) => {
     },
   } = sneaker;
 
+  const formatDate = (dateString) => {
+    const months = [
+      'Jan.',
+      'Feb.',
+      'Mar.',
+      'Apr.',
+      'May',
+      'Jun.',
+      'Jul.',
+      'Aug.',
+      'Sep.',
+      'Oct.',
+      'Nov.',
+      'Dec.',
+    ];
+
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const monthIndex = date.getMonth();
+    const year = date.getFullYear();
+
+    return `${months[monthIndex]} ${day}, ${year}`;
+  };
+
   return (
-    <Card elevation={4}>
-      <View>
-        <Text>{name}</Text>
-        <Text>Last Worn: {lastWearDate}</Text>
-        <Card.Cover source={{ uri: image.thumbnail }} />
+    <SneakerContainer>
+      <SneakerName>{name}</SneakerName>
+      <Text style={{ fontFamily: 'Nunito_300Light_Italic' }}>
+        Last Worn: {formatDate(lastWearDate)}
+      </Text>
+      <ImageContainer>
+        <SneakerImage
+          resizeMode='stretch'
+          source={{ uri: image.thumbnail }}
+        />
+      </ImageContainer>
+      <View style={{ alignItems: 'center' }}>
+        <WearButton>Wear</WearButton>
       </View>
-    </Card>
+    </SneakerContainer>
   );
 };

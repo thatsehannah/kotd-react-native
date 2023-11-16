@@ -1,7 +1,10 @@
 import { Text } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/stack';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import styled, { useTheme } from 'styled-components/native';
+import { useTheme } from 'styled-components/native';
 
 import { CollectionScreen } from '../../features/collection/screens/collection.screen';
 import { SafeAreaContainer } from '../../components/utility/safe-area.component';
@@ -22,7 +25,12 @@ export const SneakerCollectionNavigator = () => {
   const theme = useTheme();
 
   return (
-    <SneakerCollectionStack.Navigator>
+    <SneakerCollectionStack.Navigator
+      screenOptions={{
+        gestureEnabled: true,
+        ...TransitionPresets.ModalPresentationIOS,
+      }}
+    >
       <SneakerCollectionStack.Screen
         name='CollectionMain'
         component={CollectionScreen}

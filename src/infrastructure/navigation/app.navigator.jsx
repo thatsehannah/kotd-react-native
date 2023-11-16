@@ -5,8 +5,8 @@ import { Text } from 'react-native';
 import { SneakerCollectionNavigator } from './sneaker-collection.navigator';
 import { SafeAreaContainer } from '../../components/utility/safe-area.component';
 
-import CollectionIcon from '../../../assets/collection-icon.svg';
-import RotationIcon from '../../../assets/rotation-icon.svg';
+import { CollectionSvgIcon } from './tab-icons/collection-icon-svg';
+import { RotationSvgIcon } from './tab-icons/rotation-icon-svg';
 
 const RotationScreen = () => {
   return (
@@ -47,13 +47,7 @@ export const AppNavigator = () => {
         component={SneakerCollectionNavigator}
         options={{
           tabBarIcon: ({ size, color }) => {
-            return (
-              <CollectionIcon
-                height={100}
-                fill='currentColor'
-                color={color}
-              />
-            );
+            return <CollectionSvgIcon color={color} />;
           },
         }}
       />
@@ -62,13 +56,7 @@ export const AppNavigator = () => {
         component={RotationScreen}
         options={{
           tabBarIcon: ({ size, color }) => {
-            return (
-              <RotationIcon
-                height={75}
-                fill='currentColor'
-                color={color}
-              />
-            );
+            return <RotationSvgIcon color={color} />;
           },
         }}
       />

@@ -9,6 +9,7 @@ export const SneakerContainer = styled.View`
   border-radius: 20px;
   padding: 10px 20px;
   box-shadow: 1px 1px 5px gray;
+  elevation: 5;
 `;
 
 export const SneakerName = styled.Text`

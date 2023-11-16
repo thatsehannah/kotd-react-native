@@ -3,18 +3,18 @@ import { Pressable } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 
 import { SafeAreaContainer } from '../../../components/utility/safe-area.component';
-import { SneakersList, CenteredView } from './sneakers.screen.styles';
+import { CollectionList, CenteredView } from './collection.screen.styles';
 import { SneakerCard } from '../components/sneaker-card.component';
 
-import { SneakerContext } from '../../../context/sneakers/sneakers.context';
+import { UserCollectionContext } from '../../../context/collection/collection.context';
 import { useTheme } from 'styled-components/native';
 import { Spacer } from '../../../components/spacer/spacer.component';
 
-export const SneakersScreen = ({ navigation }) => {
-  const { sneakers, isSneakersLoading } = useContext(SneakerContext);
+export const CollectionScreen = ({ navigation }) => {
+  const { collection, isCollectionLoading } = useContext(UserCollectionContext);
   const theme = useTheme();
 
-  if (isSneakersLoading) {
+  if (isCollectionLoading) {
     return (
       <CenteredView>
         <ActivityIndicator
@@ -29,8 +29,8 @@ export const SneakersScreen = ({ navigation }) => {
   return (
     <>
       <SafeAreaContainer>
-        <SneakersList
-          data={sneakers}
+        <CollectionList
+          data={collection}
           renderItem={({ item }) => {
             return (
               <>

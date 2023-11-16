@@ -1,7 +1,7 @@
 import { Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { SneakersScreen } from '../../features/sneakers/screens/sneakers.screen';
+import { CollectionScreen } from '../../features/collection/screens/collection.screen';
 import { SafeAreaContainer } from '../../components/utility/safe-area.component';
 
 const SneakerCollectionStack = createStackNavigator();
@@ -21,7 +21,7 @@ export const SneakerCollectionNavigator = () => {
     <SneakerCollectionStack.Navigator screenOptions={{ headerShown: false }}>
       <SneakerCollectionStack.Screen
         name='CollectionMain'
-        component={SneakersScreen}
+        component={CollectionScreen}
       />
       <SneakerCollectionStack.Screen
         name='SneakerDetail'

@@ -1,9 +1,9 @@
 import camelize from 'camelize';
-import mockSneakers from './mocks/sneaker.mock.json';
+import mockCollection from './mocks/collection.mock.json';
 
-export const userSneakerRequest = () => {
+export const userCollectionRequest = () => {
   return new Promise((resolve, reject) => {
-    const mock = mockSneakers;
+    const mock = mockCollection;
 
     if (!mock) {
       reject('not found');
@@ -37,22 +37,14 @@ const formatDate = (dateString) => {
   return `${months[monthIndex]} ${day}, ${year}`;
 };
 
-const generateRandomDate = (from, to) => {
-  return new Date(
-    from.getTime() + Math.random() * (to.getTime() - from.getTime())
-  );
-};
-
-export const userSneakersTransform = ({ results = [] }) => {
+export const userCollectionTransform = ({ results = [] }) => {
   const mappedResults = results.map((sneaker) => {
-    const randomDate = generateRandomDate(new Date(2023, 0, 1), new Date());
-    const formattedDate = formatDate(randomDate);
+    const formattedDate = formatDate(sneaker.lastWearDate);
     return {
       ...sneaker,
       lastWearDate: formattedDate,
     };
   });
 
-  // console.log('Mapped Results: ', mappedResults);
   return camelize(mappedResults);
 };

@@ -1,6 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, Text, View } from 'react-native';
-
 import { ThemeProvider } from 'styled-components/native';
 
 import {
@@ -10,9 +9,8 @@ import {
   Nunito_300Light_Italic,
 } from '@expo-google-fonts/nunito';
 
-import { SneakersScreen } from './src/features/sneakers/screens/sneakers.screen';
 import { theme } from './src/infrastructure/theme';
-import { SneakersContextProvider } from './src/context/sneakers/sneakers.context';
+import { UserCollectionContextProvider } from './src/context/collection/collection.context';
 import { Navigation } from './src/infrastructure/navigation';
 
 export default function App() {
@@ -29,9 +27,9 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <SneakersContextProvider>
+        <UserCollectionContextProvider>
           <Navigation />
-        </SneakersContextProvider>
+        </UserCollectionContextProvider>
       </ThemeProvider>
       <StatusBar style='auto' />
     </>

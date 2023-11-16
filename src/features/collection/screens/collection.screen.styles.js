@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const SneakersList = styled.FlatList.attrs({
+export const CollectionList = styled.FlatList.attrs({
   contentContainerStyle: {
     padding: 16,
   },

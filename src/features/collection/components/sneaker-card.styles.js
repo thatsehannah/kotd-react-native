@@ -5,9 +5,10 @@ import { colors } from '../../../infrastructure/theme/colors';
 
 export const SneakerContainer = styled.View`
   height: 460px;
-  background-color: #ededed;
+  background-color: #f5f5f4;
   border-radius: 20px;
   padding: 10px 20px;
+  box-shadow: 1px 1px 5px gray;
 `;
 
 export const SneakerName = styled.Text`

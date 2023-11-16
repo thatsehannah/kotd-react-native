@@ -33,9 +33,11 @@ const Tab = createBottomTabNavigator();
 export const AppNavigator = () => {
   const theme = useTheme();
   const tintColor = theme.colors.brand.quaternary;
+
   return (
     <Tab.Navigator
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: tintColor,
         tabBarInactiveTintColor: 'gray',
       }}

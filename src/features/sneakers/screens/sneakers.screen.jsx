@@ -8,8 +8,9 @@ import { SneakerCard } from '../components/sneaker-card.component';
 import { SneakerContext } from '../../../context/sneakers/sneakers.context';
 import { useTheme } from 'styled-components/native';
 import { Spacer } from '../../../components/spacer/spacer.component';
+import { TouchableOpacity } from 'react-native';
 
-export const SneakersScreen = () => {
+export const SneakersScreen = ({ navigation }) => {
   const { sneakers, isSneakersLoading } = useContext(SneakerContext);
   const theme = useTheme();
 
@@ -33,7 +34,11 @@ export const SneakersScreen = () => {
           renderItem={({ item }) => {
             return (
               <>
-                <SneakerCard sneaker={item} />
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('SneakerDetail')}
+                >
+                  <SneakerCard sneaker={item} />
+                </TouchableOpacity>
                 <Spacer
                   position='top'
                   size='large'

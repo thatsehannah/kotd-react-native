@@ -1,7 +1,12 @@
+import { useTheme } from 'styled-components';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Text } from 'react-native';
+
 import { SneakerCollectionNavigator } from './sneaker-collection.navigator';
-import { Image, Text } from 'react-native';
 import { SafeAreaContainer } from '../../components/utility/safe-area.component';
+
+import CollectionIcon from '../../../assets/collection-icon.svg';
+import RotationIcon from '../../../assets/rotation-icon.svg';
 
 const RotationScreen = () => {
   return (
@@ -26,17 +31,25 @@ const SettingsScreen = () => {
 const Tab = createBottomTabNavigator();
 
 export const AppNavigator = () => {
+  const theme = useTheme();
+  const tintColor = theme.colors.brand.quaternary;
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: tintColor,
+        tabBarInactiveTintColor: 'gray',
+      }}
+    >
       <Tab.Screen
         name='Collection'
         component={SneakerCollectionNavigator}
         options={{
           tabBarIcon: ({ size, color }) => {
             return (
-              <Image
-                source={require('../../../assets/collection-icon.png')}
-                style={{ width: 100, height: 100 }}
+              <CollectionIcon
+                height={100}
+                fill='currentColor'
+                color={color}
               />
             );
           },
@@ -48,9 +61,10 @@ export const AppNavigator = () => {
         options={{
           tabBarIcon: ({ size, color }) => {
             return (
-              <Image
-                source={require('../../../assets/rotation-icon.png')}
-                style={{ width: 80, height: 80 }}
+              <RotationIcon
+                height={75}
+                fill='currentColor'
+                color={color}
               />
             );
           },

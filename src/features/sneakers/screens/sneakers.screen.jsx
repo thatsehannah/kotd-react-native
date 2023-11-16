@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Pressable } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
 
 import { SafeAreaContainer } from '../../../components/utility/safe-area.component';
@@ -8,7 +9,6 @@ import { SneakerCard } from '../components/sneaker-card.component';
 import { SneakerContext } from '../../../context/sneakers/sneakers.context';
 import { useTheme } from 'styled-components/native';
 import { Spacer } from '../../../components/spacer/spacer.component';
-import { TouchableOpacity } from 'react-native';
 
 export const SneakersScreen = ({ navigation }) => {
   const { sneakers, isSneakersLoading } = useContext(SneakerContext);
@@ -34,11 +34,9 @@ export const SneakersScreen = ({ navigation }) => {
           renderItem={({ item }) => {
             return (
               <>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate('SneakerDetail')}
-                >
+                <Pressable onPress={() => navigation.navigate('SneakerDetail')}>
                   <SneakerCard sneaker={item} />
-                </TouchableOpacity>
+                </Pressable>
                 <Spacer
                   position='top'
                   size='large'

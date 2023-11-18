@@ -20,7 +20,8 @@
       "lastWearWeather": "sunny",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
       "timesWorn": 24,
-      "conditionGrade": "B-"
+      "conditionGrade": "B-",
+      "isFavorite": true
     },
     {
       "id": "2",
@@ -41,7 +42,8 @@
       "lastWearWeather": "sunny",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
       "timesWorn": 30,
-      "conditionGrade": "A"
+      "conditionGrade": "A",
+      "isFavorite": false
     },
     {
       "id": "3",
@@ -62,7 +64,8 @@
       "lastWearWeather": "sunny",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
       "timesWorn": 12,
-      "conditionGrade": "C"
+      "conditionGrade": "C",
+      "isFavorite": false
     },
     {
       "id": "4",
@@ -83,7 +86,8 @@
       "lastWearWeather": "cloudy",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
       "timesWorn": 1,
-      "conditionGrade": "A+"
+      "conditionGrade": "A+",
+      "isFavorite": true
     },
     {
       "id": "5",
@@ -104,7 +108,8 @@
       "lastWearWeather": "snowy",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
       "timesWorn": 100,
-      "conditionGrade": "F"
+      "conditionGrade": "F",
+      "isFavorite": true
     },
     {
       "id": "6",
@@ -125,7 +130,8 @@
       "lastWearWeather": "",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
       "timesWorn": 0,
-      "conditionGrade": "D"
+      "conditionGrade": "D",
+      "isFavorite": false
     }
   ]
 }

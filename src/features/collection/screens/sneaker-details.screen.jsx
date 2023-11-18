@@ -1,6 +1,7 @@
 import { SafeAreaContainer } from '../../../components/utility/safe-area.component';
-import { ScrollView, Text } from 'react-native';
+import { Pressable, ScrollView, Text } from 'react-native';
 import { Spacer } from '../../../components/spacer/spacer.component';
+import { FavoriteIconSvg } from '../../../components/favorite-icon/favorite-icon-svg';
 import {
   ScreenContainer,
   SneakerImage,
@@ -15,10 +16,14 @@ import {
   ConditionContainer,
   ConditionGradeText,
   ConditionGradeLabel,
+  FavoriteContainer,
 } from './sneaker-details.screen.styles';
+import { useState } from 'react';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export const SneakerDetailsScreen = ({ route }) => {
   const { sneaker } = route.params;
+  const [isFavorite, setIsFavorite] = useState(sneaker.isFavorite);
 
   return (
     <SafeAreaContainer>
@@ -26,6 +31,11 @@ export const SneakerDetailsScreen = ({ route }) => {
         <ScreenContainer>
           <SneakerTitle>{sneaker.name}</SneakerTitle>
           <ImageContainer>
+            <FavoriteContainer>
+              <Pressable onPress={() => setIsFavorite(!isFavorite)}>
+                <FavoriteIconSvg color={isFavorite ? '#f94449' : '#fff'} />
+              </Pressable>
+            </FavoriteContainer>
             <SneakerImage source={{ uri: sneaker.image.original }} />
             <ConditionContainer>
               <ConditionGradeLabel>

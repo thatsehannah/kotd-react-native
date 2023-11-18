@@ -61,8 +61,8 @@ export const ConditionContainer = styled.View`
   position: absolute;
   background-color: #fffff4;
   z-index: 999;
-  bottom: 35px;
-  right: 20px;
+  bottom: 20px;
+  left: 20px;
   padding: 10px;
   border-radius: 10px;
 `;
@@ -96,4 +96,11 @@ export const ConditionGradeText = styled.Text`
   font-size: 18px;
   color: ${({ grade }) => createConditionGradeColor(grade)};
   font-weight: 800;
+`;
+
+export const FavoriteContainer = styled.View`
+  position: absolute;
+  top: -20px;
+  right: -8px;
+  z-index: 999;
 `;

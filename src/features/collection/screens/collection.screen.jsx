@@ -34,7 +34,11 @@ export const CollectionScreen = ({ navigation }) => {
           renderItem={({ item }) => {
             return (
               <>
-                <Pressable onPress={() => navigation.navigate('SneakerDetail')}>
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate('SneakerDetail', { sneaker: item })
+                  }
+                >
                   <SneakerCard sneaker={item} />
                 </Pressable>
                 <Spacer

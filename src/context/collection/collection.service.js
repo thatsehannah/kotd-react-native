@@ -39,10 +39,13 @@ const formatDate = (dateString) => {
 
 export const userCollectionTransform = ({ results = [] }) => {
   const mappedResults = results.map((sneaker) => {
-    const formattedDate = formatDate(sneaker.lastWearDate);
+    const formattedLastWearDate = sneaker.lastWearDate
+      ? formatDate(sneaker.lastWearDate)
+      : 'Never';
     return {
       ...sneaker,
-      lastWearDate: formattedDate,
+      lastWearDate: formattedLastWearDate,
+      releaseDate: formatDate(sneaker.releaseDate),
     };
   });
 

@@ -8,29 +8,15 @@ import { useTheme } from 'styled-components/native';
 
 import { CollectionScreen } from '../../features/collection/screens/collection.screen';
 import { SafeAreaContainer } from '../../components/utility/safe-area.component';
+import { SneakerDetailsScreen } from '../../features/collection/screens/sneaker-details.screen';
 
 const SneakerCollectionStack = createStackNavigator();
-
-const SneakerDetailScreen = () => {
-  return (
-    <SafeAreaContainer
-      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-    >
-      <Text>Sneaker Detail Screen!</Text>
-    </SafeAreaContainer>
-  );
-};
 
 export const SneakerCollectionNavigator = () => {
   const theme = useTheme();
 
   return (
-    <SneakerCollectionStack.Navigator
-      screenOptions={{
-        gestureEnabled: true,
-        ...TransitionPresets.ModalPresentationIOS,
-      }}
-    >
+    <SneakerCollectionStack.Navigator>
       <SneakerCollectionStack.Screen
         name='CollectionMain'
         component={CollectionScreen}
@@ -51,9 +37,9 @@ export const SneakerCollectionNavigator = () => {
       />
       <SneakerCollectionStack.Screen
         name='SneakerDetail'
-        component={SneakerDetailScreen}
+        component={SneakerDetailsScreen}
         options={{
-          title: 'Sneaker Detail',
+          title: 'Details',
         }}
       />
     </SneakerCollectionStack.Navigator>

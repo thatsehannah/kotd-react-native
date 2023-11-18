@@ -19,7 +19,6 @@ import {
   FavoriteContainer,
 } from './sneaker-details.screen.styles';
 import { useState } from 'react';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export const SneakerDetailsScreen = ({ route }) => {
   const { sneaker } = route.params;

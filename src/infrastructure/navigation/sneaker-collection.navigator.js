@@ -7,12 +7,12 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useTheme } from 'styled-components/native';
 
 import { CollectionScreen } from '../../features/collection/screens/collection.screen';
-import { SafeAreaContainer } from '../../components/utility/safe-area.component';
 import { SneakerDetailsScreen } from '../../features/collection/screens/sneaker-details.screen';
+import { AddSneakerScreen } from '../../features/add-to-collection/screens/add-sneaker.screen';
 
 const SneakerCollectionStack = createStackNavigator();
 
-export const SneakerCollectionNavigator = () => {
+export const SneakerCollectionNavigator = ({ navigation }) => {
   const theme = useTheme();
 
   return (
@@ -25,7 +25,7 @@ export const SneakerCollectionNavigator = () => {
           headerRight: () => {
             return (
               <FontAwesome
-                onPress={() => console.log('Add sneaker')}
+                onPress={() => navigation.navigate('AddSneaker')}
                 name='plus-square-o'
                 size={32}
                 color={theme.colors.brand.secondary}
@@ -36,10 +36,19 @@ export const SneakerCollectionNavigator = () => {
         }}
       />
       <SneakerCollectionStack.Screen
-        name='SneakerDetail'
+        name='CollectionSneakerDetail'
         component={SneakerDetailsScreen}
         options={{
           title: 'Details',
+        }}
+      />
+      <SneakerCollectionStack.Screen
+        name='AddSneaker'
+        component={AddSneakerScreen}
+        options={{
+          title: 'Add',
+          gestureEnabled: true, //need to include this for Android (defaults to false)
+          ...TransitionPresets.ModalPresentationIOS,
         }}
       />
     </SneakerCollectionStack.Navigator>

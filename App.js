@@ -11,6 +11,7 @@ import {
 
 import { theme } from './src/infrastructure/theme';
 import { UserCollectionContextProvider } from './src/context/collection/collection.context';
+import { AllSneakersContextProvider } from './src/context/all-sneakers/all-sneakers.context';
 import { Navigation } from './src/infrastructure/navigation';
 
 export default function App() {
@@ -27,9 +28,11 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <UserCollectionContextProvider>
-          <Navigation />
-        </UserCollectionContextProvider>
+        <AllSneakersContextProvider>
+          <UserCollectionContextProvider>
+            <Navigation />
+          </UserCollectionContextProvider>
+        </AllSneakersContextProvider>
       </ThemeProvider>
       <StatusBar style='auto' />
     </>

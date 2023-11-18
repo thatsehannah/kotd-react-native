@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { Button } from 'react-native-paper';
 
-import { colors } from '../../../infrastructure/theme/colors';
+import { colors } from '../../infrastructure/theme/colors';
 
 export const SneakerContainer = styled.View`
   height: 460px;
@@ -31,11 +31,11 @@ export const SneakerImage = styled.Image`
   overflow: hidden;
 `;
 
-export const WearButtonContainer = styled.View`
+export const ActionButtonContainer = styled.View`
   align-items: flex-start;
 `;
 
-export const WearButton = styled(Button).attrs({
+export const ActionButton = styled(Button).attrs({
   mode: 'contained',
   buttonColor: colors.brand.tertiary,
   contentStyle: {

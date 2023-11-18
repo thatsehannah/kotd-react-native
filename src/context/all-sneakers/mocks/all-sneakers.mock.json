@@ -1,0 +1,65 @@
+{
+  "count": 4,
+  "results": [
+    {
+      "id": 1,
+      "sku": "FB9927-200",
+      "brand": "Jordan",
+      "name": "Jordan 4 Retro SE Craft Medium Olive",
+      "colorway": "Medium Olive/Pale Vanilla/Khaki/Black/Sail",
+      "gender": "Men",
+      "retailPrice": 210,
+      "releaseDate": "2023-11-18",
+      "image": {
+        "original": "https://thesneakerdatabase.com/_next/image?url=https%3A%2F%2Fimage.goat.com%2Fattachments%2Fproduct_template_pictures%2Fimages%2F095%2F158%2F823%2Foriginal%2F1218707_00.png&w=1080&q=75",
+        "small": "",
+        "thumbnail": "https://image.goat.com/750/attachments/product_template_pictures/images/095/158/823/original/1218707_00.png"
+      }
+    },
+    {
+      "id": 2,
+      "sku": "DZ5485-612",
+      "brand": "New Balance",
+      "name": "DTLR x 9060 'Fire Sign'",
+      "colorway": "Orange/Red/Yellow",
+      "gender": "Men",
+      "retailPrice": 180,
+      "releaseDate": "2023-11-17",
+      "image": {
+        "original": "https://thesneakerdatabase.com/_next/image?url=https%3A%2F%2Fimage.goat.com%2Fattachments%2Fproduct_template_pictures%2Fimages%2F094%2F562%2F587%2Foriginal%2FU9060DMG.png.png&w=1080&q=75",
+        "small": "",
+        "thumbnail": "https://image.goat.com/750/attachments/product_template_pictures/images/094/562/587/original/U9060DMG.png.png"
+      }
+    },
+    {
+      "id": 3,
+      "sku": "508214-660",
+      "brand": "Nike",
+      "name": "Nike Air Yeezy 2 Red October",
+      "colorway": "Red",
+      "gender": "Men",
+      "retailPrice": 250,
+      "releaseDate": "2014-02-09",
+      "image": {
+        "original": "https://thesneakerdatabase.com/_next/image?url=https%3A%2F%2Fimage.goat.com%2Fattachments%2Fproduct_template_pictures%2Fimages%2F078%2F080%2F262%2Foriginal%2F12130_00.png.png&w=1080&q=75",
+        "small": "",
+        "thumbnail": "https://image.goat.com/750/attachments/product_template_pictures/images/078/080/262/original/12130_00.png.png"
+      }
+    },
+    {
+      "id": 4,
+      "sku": "304775-142",
+      "brand": "Jordan",
+      "name": "Jordan 7 Retro Nothing But Net",
+      "colorway": "White/University Red-Black-Bright Concord",
+      "gender": "Men",
+      "retailPrice": 190,
+      "releaseDate": "2015-11-14",
+      "image": {
+        "original": "https://thesneakerdatabase.com/_next/image?url=https%3A%2F%2Fimage.goat.com%2Fattachments%2Fproduct_template_pictures%2Fimages%2F078%2F460%2F882%2Foriginal%2F14746_00.png.png&w=1080&q=75",
+        "small": "",
+        "thumbnail": "https://image.goat.com/750/attachments/product_template_pictures/images/078/460/882/original/14746_00.png.png"
+      }
+    }
+  ]
+}

@@ -19,7 +19,8 @@
       "lastWearActivity": "social gathering",
       "lastWearWeather": "sunny",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
-      "timesWorn": 24
+      "timesWorn": 24,
+      "conditionGrade": "B-"
     },
     {
       "id": "2",
@@ -39,7 +40,8 @@
       "lastWearActivity": "work",
       "lastWearWeather": "sunny",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
-      "timesWorn": 30
+      "timesWorn": 30,
+      "conditionGrade": "A"
     },
     {
       "id": "3",
@@ -59,7 +61,8 @@
       "lastWearActivity": "outdoor activity",
       "lastWearWeather": "sunny",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
-      "timesWorn": 12
+      "timesWorn": 12,
+      "conditionGrade": "C"
     },
     {
       "id": "4",
@@ -79,7 +82,8 @@
       "lastWearActivity": "social gathering",
       "lastWearWeather": "cloudy",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
-      "timesWorn": 1
+      "timesWorn": 1,
+      "conditionGrade": "A+"
     },
     {
       "id": "5",
@@ -99,7 +103,8 @@
       "lastWearActivity": "social gathering",
       "lastWearWeather": "snowy",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
-      "timesWorn": 100
+      "timesWorn": 100,
+      "conditionGrade": "F"
     },
     {
       "id": "6",
@@ -119,7 +124,8 @@
       "lastWearActivity": "",
       "lastWearWeather": "",
       "weatherOptions": ["sunny", "snowy", "cloudy", "rainy", "hot", "cold"],
-      "timesWorn": 0
+      "timesWorn": 0,
+      "conditionGrade": "D"
     }
   ]
 }

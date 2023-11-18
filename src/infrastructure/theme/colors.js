@@ -1,8 +1,8 @@
 export const colors = {
   brand: {
-    primary: '#a4b494',
-    secondary: '#b3c5ad',
-    tertiary: '#3b5249',
-    quaternary: '#519872',
+    primary: '#114B5F',
+    secondary: '#1A936F',
+    tertiary: '#88D498',
+    quaternary: '#C6DABF',
   },
 };

@@ -28,7 +28,7 @@ export const SneakerCollectionNavigator = () => {
                 onPress={() => console.log('Add sneaker')}
                 name='plus-square-o'
                 size={32}
-                color={theme.colors.brand.quaternary}
+                color={theme.colors.brand.secondary}
                 style={{ marginRight: 15 }}
               />
             );

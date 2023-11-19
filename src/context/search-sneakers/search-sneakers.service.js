@@ -25,6 +25,7 @@ export const searchSneakerTransform = (data) => {
       ...sneaker,
       isFavorite: false,
       releaseDate: formattedReleaseDate,
+      gender: sneaker.gender === 'Child' ? 'Grade School' : sneaker.gender,
     };
   });
 

@@ -5,7 +5,7 @@ import { SafeAreaContainer } from '../../../components/utility/safe-area.compone
 import { UserCollectionContext } from '../../../context/collection/collection.context';
 import { useTheme } from 'styled-components/native';
 import { SneakerList } from '../../../components/sneaker-list/sneaker-list.component';
-import { LoadingIndicator } from '../../../components/loading/loading.component';
+import { LoadingIndicator } from '../../../components/loading/loading-indicator.component';
 
 export const CollectionScreen = ({ navigation }) => {
   const { collection, isCollectionLoading } = useContext(UserCollectionContext);

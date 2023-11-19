@@ -1,4 +1,6 @@
 import camelize from 'camelize';
+
+import { formatDate } from '../utility/formatDate';
 import mockCollection from './mocks/collection.mock.json';
 
 export const userCollectionRequest = () => {
@@ -11,30 +13,6 @@ export const userCollectionRequest = () => {
 
     resolve(mock);
   });
-};
-
-const formatDate = (dateString) => {
-  const months = [
-    'Jan.',
-    'Feb.',
-    'Mar.',
-    'Apr.',
-    'May',
-    'Jun.',
-    'Jul.',
-    'Aug.',
-    'Sep.',
-    'Oct.',
-    'Nov.',
-    'Dec.',
-  ];
-
-  const date = new Date(dateString);
-  const day = date.getDate();
-  const monthIndex = date.getMonth();
-  const year = date.getFullYear();
-
-  return `${months[monthIndex]} ${day}, ${year}`;
 };
 
 export const userCollectionTransform = ({ results = [] }) => {

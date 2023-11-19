@@ -1,4 +1,6 @@
 import camelize from 'camelize';
+
+import { formatDate } from '../utility/formatDate';
 import allSneakers from './mocks/all-sneakers.mock.json';
 
 export const searchSneakerRequest = (searchTerm) => {
@@ -18,9 +20,11 @@ export const searchSneakerRequest = (searchTerm) => {
 
 export const searchSneakerTransform = (data) => {
   const mappedResults = data.map((sneaker) => {
+    const formattedReleaseDate = formatDate(sneaker.releaseDate);
     return {
       ...sneaker,
       isFavorite: false,
+      releaseDate: formattedReleaseDate,
     };
   });
 

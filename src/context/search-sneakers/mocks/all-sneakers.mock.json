@@ -1,5 +1,5 @@
 {
-  "count": 5,
+  "count": 6,
   "results": [
     {
       "id": 1,
@@ -74,6 +74,36 @@
         "original": "https://thesneakerdatabase.com/_next/image?url=https%3A%2F%2Fimage.goat.com%2Fattachments%2Fproduct_template_pictures%2Fimages%2F074%2F779%2F686%2Foriginal%2F890914_00.png.png&w=1080&q=75",
         "small": "",
         "thumbnail": "https://image.goat.com/750/attachments/product_template_pictures/images/074/779/686/original/890914_00.png.png"
+      }
+    },
+    {
+      "id": 6,
+      "sku": "CD6066-102",
+      "brand": "Nike",
+      "name": "Nike Roshe Golf White (W)",
+      "colorway": "White/Pure Platinum/Black",
+      "gender": "Women",
+      "retailPrice": 80,
+      "releaseDate": "2021-01-08",
+      "image": {
+        "original": "https://thesneakerdatabase.com/_next/image?url=https%3A%2F%2Fimage.goat.com%2Fattachments%2Fproduct_template_pictures%2Fimages%2F048%2F729%2F539%2Foriginal%2FCD6066_102.png.png&w=1080&q=75",
+        "small": "",
+        "thumbnail": "https://image.goat.com/750/attachments/product_template_pictures/images/048/729/539/original/CD6066_102.png.png"
+      }
+    },
+    {
+      "id": 7,
+      "sku": "DM0967-160",
+      "brand": "Jordan",
+      "name": "Jordan 3 Retro Fire Red (2022) (GS)",
+      "colorway": "White/Fire Red/Cement Grey/Black",
+      "gender": "Child",
+      "retailPrice": 150,
+      "releaseDate": "2022-09-10",
+      "image": {
+        "original": "https://thesneakerdatabase.com/_next/image?url=https%3A%2F%2Fimage.goat.com%2Fattachments%2Fproduct_template_pictures%2Fimages%2F076%2F570%2F655%2Foriginal%2F1013574_00.png.png&w=1080&q=75",
+        "small": "",
+        "thumbnail": "https://image.goat.com/750/attachments/product_template_pictures/images/076/570/655/original/1013574_00.png.png"
       }
     }
   ]

@@ -1,9 +1,5 @@
 import styled from 'styled-components/native';
 
-export const ScreenContainer = styled.View`
-  padding-top: 16px;
-`;
-
 export const SneakerTitle = styled.Text`
   font-size: 24px;
   margin: 0 20px;
@@ -19,42 +15,6 @@ export const ImageContainer = styled.View`
 export const SneakerImage = styled.Image`
   height: 380px;
   width: 380px;
-`;
-
-export const AllDetailsContainer = styled.View`
-  background-color: ${(props) => props.theme.colors.brand.tertiary};
-  padding: 24px 16px;
-  border-radius: 20px;
-  box-shadow: 1px 1px 5px gray;
-  margin: 12px;
-  elevation: 5;
-`;
-
-export const DetailContainer = styled.View`
-  width: 48%;
-`;
-
-export const Label = styled.Text`
-  margin-bottom: 10px;
-  color: white;
-  font-weight: 600;
-`;
-
-export const TextContainer = styled.View`
-  background-color: #f5f5f4;
-  border-radius: 8px;
-  padding: 8px;
-`;
-
-export const Row = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-export const DetailsText = styled.Text`
-  font-weight: 800;
-  font-size: 18px;
-  text-transform: capitalize;
 `;
 
 export const ConditionContainer = styled.View`
@@ -103,4 +63,40 @@ export const FavoriteContainer = styled.View`
   top: -20px;
   right: -8px;
   z-index: 999;
+`;
+
+export const AllDetailsContainer = styled.View`
+  background-color: ${(props) => props.theme.colors.brand.tertiary};
+  padding: 24px 16px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px gray;
+  margin: 12px;
+  elevation: 5;
+`;
+
+export const DetailContainer = styled.View`
+  width: 48%;
+`;
+
+export const Label = styled.Text`
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 600;
+`;
+
+export const TextContainer = styled.View`
+  background-color: #f5f5f4;
+  border-radius: 8px;
+  padding: 8px;
+`;
+
+export const Row = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const DetailsText = styled.Text`
+  font-weight: 800;
+  font-size: 18px;
+  text-transform: capitalize;
 `;

@@ -42,7 +42,7 @@ export const AddSneakerScreen = ({ navigation }) => {
           <SneakerList
             navigation={navigation}
             sneakers={searchSneakers}
-            screen={''}
+            screen={'SearchSneakerDetail'}
             cardButtonTxt='Add'
           />
         ) : (

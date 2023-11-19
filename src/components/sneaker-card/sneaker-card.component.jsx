@@ -24,7 +24,7 @@ export const SneakerCard = ({ sneaker, buttonFn, buttonTxt }) => {
             SKU: {sneaker.sku}
           </Text>
           <Text style={{ fontFamily: 'Nunito_300Light_Italic' }}>
-            Release Date: {sneaker.releaseDate}
+            {sneaker.gender}
           </Text>
         </View>
       )}

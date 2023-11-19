@@ -7,8 +7,9 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useTheme } from 'styled-components/native';
 
 import { CollectionScreen } from '../../features/collection/screens/collection.screen';
-import { SneakerDetailsScreen } from '../../features/collection/screens/sneaker-details.screen';
+import { CollectionSneakerDetailsScreen } from '../../features/collection/screens/collection-sneaker-details.screen';
 import { AddSneakerScreen } from '../../features/add-to-collection/screens/add-sneaker.screen';
+import { SearchSneakerDetailScreen } from '../../features/add-to-collection/screens/search-sneaker-details.screen';
 
 const SneakerCollectionStack = createStackNavigator();
 
@@ -37,7 +38,7 @@ export const SneakerCollectionNavigator = ({ navigation }) => {
       />
       <SneakerCollectionStack.Screen
         name='CollectionSneakerDetail'
-        component={SneakerDetailsScreen}
+        component={CollectionSneakerDetailsScreen}
         options={{
           title: 'Details',
         }}
@@ -50,6 +51,11 @@ export const SneakerCollectionNavigator = ({ navigation }) => {
           gestureEnabled: true, //need to include this for Android (defaults to false)
           ...TransitionPresets.ModalPresentationIOS,
         }}
+      />
+      <SneakerCollectionStack.Screen
+        name='SearchSneakerDetail'
+        component={SearchSneakerDetailScreen}
+        options={{ title: 'Details' }}
       />
     </SneakerCollectionStack.Navigator>
   );

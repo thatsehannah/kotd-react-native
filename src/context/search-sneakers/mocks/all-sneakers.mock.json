@@ -1,5 +1,5 @@
 {
-  "count": 4,
+  "count": 5,
   "results": [
     {
       "id": 1,
@@ -59,6 +59,21 @@
         "original": "https://thesneakerdatabase.com/_next/image?url=https%3A%2F%2Fimage.goat.com%2Fattachments%2Fproduct_template_pictures%2Fimages%2F078%2F460%2F882%2Foriginal%2F14746_00.png.png&w=1080&q=75",
         "small": "",
         "thumbnail": "https://image.goat.com/750/attachments/product_template_pictures/images/078/460/882/original/14746_00.png.png"
+      }
+    },
+    {
+      "id": 5,
+      "sku": "CU9307-081",
+      "brand": "Jordan",
+      "name": "Jordan 7 Retro Citrus",
+      "colorway": "Black/Citrus-Varsity Red",
+      "gender": "Men",
+      "retailPrice": 200,
+      "releaseDate": "2022-08-13",
+      "image": {
+        "original": "https://thesneakerdatabase.com/_next/image?url=https%3A%2F%2Fimage.goat.com%2Fattachments%2Fproduct_template_pictures%2Fimages%2F074%2F779%2F686%2Foriginal%2F890914_00.png.png&w=1080&q=75",
+        "small": "",
+        "thumbnail": "https://image.goat.com/750/attachments/product_template_pictures/images/074/779/686/original/890914_00.png.png"
       }
     }
   ]

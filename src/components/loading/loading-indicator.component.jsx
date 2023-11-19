@@ -1,11 +1,7 @@
 import { ActivityIndicator } from 'react-native-paper';
 import styled from 'styled-components/native';
 
-const CenteredView = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
+import { CenteredView } from '../utility/centered-view.component';
 
 export const LoadingIndicator = ({ color }) => {
   return (

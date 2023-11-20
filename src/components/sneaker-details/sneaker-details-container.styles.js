@@ -98,5 +98,5 @@ export const Row = styled.View`
 export const DetailsText = styled.Text`
   font-weight: 800;
   font-size: 18px;
-  text-transform: capitalize;
+  text-transform: ${({ isSku }) => (isSku ? 'uppercase' : 'capitalize')};
 `;

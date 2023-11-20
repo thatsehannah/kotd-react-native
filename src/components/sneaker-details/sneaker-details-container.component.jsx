@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { chunkasize } from './utility/chunkasize';
 import {
   AllDetailsContainer,
@@ -58,7 +58,9 @@ export const SneakerDetailsContainer = ({ detailsArray, sneaker }) => {
                 <DetailContainer key={index}>
                   <Label>{item.label}</Label>
                   <TextContainer>
-                    <DetailsText>{item.value}</DetailsText>
+                    <DetailsText isSku={item.label === 'SKU'}>
+                      {item.value}
+                    </DetailsText>
                   </TextContainer>
                 </DetailContainer>
               ))}

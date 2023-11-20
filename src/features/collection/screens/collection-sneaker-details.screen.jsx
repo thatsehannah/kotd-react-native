@@ -13,9 +13,10 @@ export const CollectionSneakerDetailsScreen = ({ route }) => {
   const details = [
     { label: 'Colorway', value: sneaker.colorway },
     { label: 'Release Date', value: sneaker.releaseDate },
-    { label: 'Last Worn', value: sneaker.lastWearDate },
+    { label: 'Last Worn On', value: sneaker.lastWearDate },
     { label: 'Last Activity', value: sneaker.lastWearActivity },
     { label: 'Weather Last Worn In', value: sneaker.lastWearWeather },
+    { label: 'Added to Collection On', value: sneaker.dateAdded },
     { label: 'Num. of Wears', value: sneaker.timesWorn },
   ];
 

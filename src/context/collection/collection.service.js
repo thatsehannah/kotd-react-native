@@ -24,6 +24,7 @@ export const userCollectionTransform = ({ results = [] }) => {
       ...sneaker,
       lastWearDate: formattedLastWearDate,
       releaseDate: formatDate(sneaker.releaseDate),
+      dateAdded: formatDate(sneaker.dateAdded),
       isPersonal: true,
     };
   });

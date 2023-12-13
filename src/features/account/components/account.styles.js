@@ -62,3 +62,15 @@ export const AltAuthOptionContainer = styled.View`
 export const AltAuthOptionText = styled.Text`
   font-size: 18px;
 `;
+
+export const ErrorContainer = styled.View`
+  max-width: 300px;
+  align-items: center;
+  align-self: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+`;
+
+export const ErrorText = styled.Text`
+  color: red;
+`;

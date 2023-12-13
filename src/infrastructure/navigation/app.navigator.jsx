@@ -7,6 +7,8 @@ import { SafeAreaContainer } from '../../components/utility/safe-area.component'
 
 import { CollectionSvgIcon } from './tab-icons/collection-icon-svg';
 import { RotationSvgIcon } from './tab-icons/rotation-icon-svg';
+import { SearchSneakersContextProvider } from '../../context/search-sneakers/search-sneakers.context';
+import { UserCollectionContextProvider } from '../../context/collection/collection.context';
 
 const RotationScreen = () => {
   return (
@@ -35,32 +37,36 @@ export const AppNavigator = () => {
   const tintColor = theme.colors.brand.secondary;
 
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: tintColor,
-        tabBarInactiveTintColor: 'gray',
-      }}
-    >
-      <Tab.Screen
-        name='Collection'
-        component={SneakerCollectionNavigator}
-        options={{
-          tabBarIcon: ({ size, color }) => {
-            return <CollectionSvgIcon color={color} />;
-          },
-        }}
-      />
-      <Tab.Screen
-        name='Rotation'
-        component={RotationScreen}
-        options={{
-          tabBarIcon: ({ size, color }) => {
-            return <RotationSvgIcon color={color} />;
-          },
-        }}
-      />
-      {/* <Tab.Screen name='Settings' component={SettingsScreen} /> */}
-    </Tab.Navigator>
+    <SearchSneakersContextProvider>
+      <UserCollectionContextProvider>
+        <Tab.Navigator
+          screenOptions={{
+            headerShown: false,
+            tabBarActiveTintColor: tintColor,
+            tabBarInactiveTintColor: 'gray',
+          }}
+        >
+          <Tab.Screen
+            name='Collection'
+            component={SneakerCollectionNavigator}
+            options={{
+              tabBarIcon: ({ size, color }) => {
+                return <CollectionSvgIcon color={color} />;
+              },
+            }}
+          />
+          <Tab.Screen
+            name='Rotation'
+            component={RotationScreen}
+            options={{
+              tabBarIcon: ({ size, color }) => {
+                return <RotationSvgIcon color={color} />;
+              },
+            }}
+          />
+          {/* <Tab.Screen name='Settings' component={SettingsScreen} /> */}
+        </Tab.Navigator>
+      </UserCollectionContextProvider>
+    </SearchSneakersContextProvider>
   );
 };

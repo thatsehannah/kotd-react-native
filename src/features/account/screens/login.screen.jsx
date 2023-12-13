@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Button, Text } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
 
 import {
   AltAuthOptionContainer,
@@ -8,14 +9,18 @@ import {
   AuthButton,
   AuthTextInput,
   BackgroundCover,
+  ErrorContainer,
+  ErrorText,
   InputBackground,
   Title,
 } from '../components/account.styles';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { TextInput } from 'react-native-paper';
 import { colors } from '../../../infrastructure/theme/colors';
+import { AuthenticationContext } from '../../../context/auth/auth.context';
 
 export const LoginScreen = ({ navigation }) => {
+  const { error, onLogin, isLoading } = useContext(AuthenticationContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -59,7 +64,31 @@ export const LoginScreen = ({ navigation }) => {
           position='top'
           size='large'
         />
-        <AuthButton uppercase>Login</AuthButton>
+        {error && (
+          <>
+            <ErrorContainer>
+              <ErrorText>{error}</ErrorText>
+            </ErrorContainer>
+            <Spacer
+              size='large'
+              position='top'
+            />
+          </>
+        )}
+        {isLoading ? (
+          <ActivityIndicator
+            animating
+            color={colors.brand.secondary}
+          />
+        ) : (
+          <AuthButton
+            uppercase
+            onPress={() => onLogin(email, password)}
+          >
+            Login
+          </AuthButton>
+        )}
+
         <Spacer
           position='top'
           size='xlarge'

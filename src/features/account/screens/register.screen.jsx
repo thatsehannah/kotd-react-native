@@ -1,4 +1,8 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { ActivityIndicator, TextInput } from 'react-native-paper';
+import { Button } from 'react-native';
+
+import { AuthenticationContext } from '../../../context/auth/auth.context';
 import {
   AltAuthOptionContainer,
   AltAuthOptionText,
@@ -6,15 +10,16 @@ import {
   AuthButton,
   AuthTextInput,
   BackgroundCover,
+  ErrorContainer,
+  ErrorText,
   InputBackground,
   Title,
 } from '../components/account.styles';
 import { colors } from '../../../infrastructure/theme/colors';
 import { Spacer } from '../../../components/spacer/spacer.component';
-import { TextInput } from 'react-native-paper';
-import { Button, Text } from 'react-native';
 
 export const RegisterScreen = ({ navigation }) => {
+  const { error, onRegister, isLoading } = useContext(AuthenticationContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -74,7 +79,31 @@ export const RegisterScreen = ({ navigation }) => {
           position='top'
           size='large'
         />
-        <AuthButton uppercase>Register</AuthButton>
+        {error && (
+          <>
+            <ErrorContainer>
+              <ErrorText>{error}</ErrorText>
+            </ErrorContainer>
+            <Spacer
+              size='large'
+              position='top'
+            />
+          </>
+        )}
+        {isLoading ? (
+          <ActivityIndicator
+            animating
+            color={colors.brand.secondary}
+          />
+        ) : (
+          <AuthButton
+            uppercase
+            onPress={() => onRegister(email, password, confirmPassword)}
+          >
+            Register
+          </AuthButton>
+        )}
+
         <Spacer
           position='top'
           size='xlarge'

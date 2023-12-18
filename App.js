@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from 'styled-components/native';
 import { initializeApp } from 'firebase/app';
+import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { firebaseConfig } from './firebaseConfig';
 
 import {
@@ -11,12 +13,13 @@ import {
 } from '@expo-google-fonts/nunito';
 
 import { theme } from './src/infrastructure/theme';
-import { UserCollectionContextProvider } from './src/context/collection/collection.context';
-import { SearchSneakersContextProvider } from './src/context/search-sneakers/search-sneakers.context';
 import { Navigation } from './src/infrastructure/navigation';
 import { AuthenticationContextProvider } from './src/context/auth/auth.context';
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+initializeAuth(app, {
+  persistence: getReactNativePersistence(AsyncStorage),
+});
 
 export default function App() {
   const [fontsLoaded] = useFonts({

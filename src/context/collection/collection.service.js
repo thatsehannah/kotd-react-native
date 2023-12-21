@@ -2,6 +2,7 @@ import camelize from 'camelize';
 
 import { formatDate } from '../utility/formatDate';
 import mockCollection from './mocks/collection.mock.json';
+import { getUserCollection } from '../../infrastructure/firebase/crud/userCollection';
 
 export const userCollectionRequest = () => {
   return new Promise((resolve, reject) => {
@@ -15,7 +16,14 @@ export const userCollectionRequest = () => {
   });
 };
 
-export const userCollectionTransform = ({ results = [] }) => {
+export const userCollectionRequest2 = (userId) => {
+  const collectionArray = [];
+  const results = getUserCollection(userId);
+
+  return results;
+};
+
+export const userCollectionTransform = (results) => {
   const mappedResults = results.map((sneaker) => {
     const formattedLastWearDate = sneaker.lastWearDate
       ? formatDate(sneaker.lastWearDate)

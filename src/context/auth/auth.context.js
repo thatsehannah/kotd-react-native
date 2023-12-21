@@ -2,6 +2,7 @@ import { useState, createContext } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import { loginRequest, registerRequest } from './auth.service';
+import { createUserCollection } from '../../infrastructure/firebase/crud/userCollection';
 
 export const AuthenticationContext = createContext();
 
@@ -45,6 +46,7 @@ export const AuthenticationContextProvider = ({ children }) => {
     registerRequest(auth, email, password)
       .then((data) => {
         setUser(data.user);
+        createUserCollection(data.user.uid);
         setIsLoading(false);
       })
       .catch((e) => {

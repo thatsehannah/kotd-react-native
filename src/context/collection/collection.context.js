@@ -1,8 +1,10 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import {
   userCollectionRequest,
+  userCollectionRequest2,
   userCollectionTransform,
 } from './collection.service';
+import { AuthenticationContext } from '../auth/auth.context';
 
 export const UserCollectionContext = createContext();
 
@@ -13,14 +15,14 @@ export const UserCollectionContextProvider = ({ children }) => {
 
   //TODO: set up authcontext so that I can pass the user
   //to userSneakerRequest()
-  // const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthenticationContext);
 
   const retrieveCollection = () => {
     setIsCollectionLoading(true);
     setCollection([]);
 
     setTimeout(() => {
-      userCollectionRequest()
+      userCollectionRequest2(user.uid)
         .then(userCollectionTransform)
         .then((collectionResults) => {
           setIsCollectionLoading(false);

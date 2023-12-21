@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { Text, View } from 'react-native';
 import {
   ImageContainer,
@@ -8,8 +9,19 @@ import {
   ActionButtonContainer,
 } from './sneaker-card.styles';
 import { Spacer } from '../spacer/spacer.component';
+import { AuthenticationContext } from '../../context/auth/auth.context';
+import { addSneakerToUserCollection } from '../../infrastructure/firebase/crud/userCollection';
 
-export const SneakerCard = ({ sneaker, buttonFn, buttonTxt }) => {
+export const SneakerCard = ({ sneaker, buttonTxt }) => {
+  const { user } = useContext(AuthenticationContext);
+
+  const buttonFunction = () => {
+    if (buttonTxt === 'Add') {
+      console.log('Add button pressed');
+      addSneakerToUserCollection(user.uid, sneaker);
+    }
+  };
+
   return (
     <SneakerContainer>
       <SneakerName numberOfLines={1}>{sneaker.name}</SneakerName>
@@ -44,7 +56,9 @@ export const SneakerCard = ({ sneaker, buttonFn, buttonTxt }) => {
         size='large'
       />
       <ActionButtonContainer>
-        <ActionButton onPress={() => buttonFn}>{buttonTxt}</ActionButton>
+        <ActionButton onPress={() => buttonFunction()}>
+          {buttonTxt}
+        </ActionButton>
       </ActionButtonContainer>
     </SneakerContainer>
   );

@@ -15,7 +15,6 @@ export const SneakerList = ({
   sneakers,
   screen,
   cardButtonTxt,
-  cardButtonFn,
 }) => {
   return (
     <>
@@ -30,7 +29,6 @@ export const SneakerList = ({
                 <SneakerCard
                   sneaker={item}
                   buttonTxt={cardButtonTxt}
-                  buttonFn={cardButtonFn}
                 />
               </Pressable>
               <Spacer

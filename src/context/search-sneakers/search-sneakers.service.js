@@ -20,12 +20,9 @@ export const searchSneakerRequest = (searchTerm) => {
 
 export const searchSneakerTransform = (data) => {
   const mappedResults = data.map((sneaker) => {
-    const formattedReleaseDate = formatDate(sneaker.releaseDate);
     return {
       ...sneaker,
-      isFavorite: false,
-      releaseDate: formattedReleaseDate,
-      gender: sneaker.gender === 'Child' ? 'Grade School' : sneaker.gender,
+      isPersonal: false,
     };
   });
 

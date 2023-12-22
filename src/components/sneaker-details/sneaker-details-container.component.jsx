@@ -23,6 +23,10 @@ export const SneakerDetailsContainer = ({ detailsArray, sneaker }) => {
   const rowChunks = chunkasize(detailsArray, 2);
   const [isFavorite, setIsFavorite] = useState(sneaker.isFavorite);
 
+  //TODO: create function that'll write to either async storage or to firestore
+  //for favoriting. Find a way to control the number of writes to db for this
+  //with some sort of threshold within 10 minutes
+
   return (
     <>
       <SneakerTitle>{sneaker.name}</SneakerTitle>

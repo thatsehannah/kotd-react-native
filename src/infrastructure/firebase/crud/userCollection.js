@@ -10,6 +10,7 @@ import {
   query,
 } from 'firebase/firestore';
 import { getDb } from '../getDb';
+import { transformNewSneakerToCollectionData } from '../../../context/utility/formatSneakerData';
 
 export const createUserCollection = async (userId) => {
   const db = getDb();
@@ -22,8 +23,8 @@ export const getUserCollection = async (userId) => {
   const db = getDb();
 
   const subCollectionRef = collection(db, 'collections', userId, 'sneakers');
-  const blah = await getDocs(subCollectionRef);
-  blah.docs.forEach((doc) => {
+  const allDocs = await getDocs(subCollectionRef);
+  allDocs.docs.forEach((doc) => {
     results.push(doc.data());
   });
 
@@ -35,13 +36,17 @@ export const addSneakerToUserCollection = async (userId, sneaker) => {
   const collectionRef = doc(db, 'collections', userId);
   const subCollectionRef = collection(collectionRef, 'sneakers');
 
+  const formattedSneaker = transformNewSneakerToCollectionData(sneaker);
+
   //check if sneaker already exists
-  const q = query(subCollectionRef, where('sku', '==', sneaker.sku));
+  const q = query(subCollectionRef, where('sku', '==', formattedSneaker.sku));
   getDocs(q).then((snapshot) => {
     if (snapshot.empty) {
-      addDoc(subCollectionRef, sneaker);
+      addDoc(subCollectionRef, formattedSneaker);
     } else {
-      console.log(`${sneaker.name} already added to ${userId} collection`);
+      console.log(
+        `${formattedSneaker.name} already added to ${userId} collection`
+      );
     }
   });
 };

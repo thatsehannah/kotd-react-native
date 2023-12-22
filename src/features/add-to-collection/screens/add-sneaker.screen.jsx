@@ -9,11 +9,7 @@ import { SneakerList } from '../../../components/sneaker-list/sneaker-list.compo
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { LoadingIndicator } from '../../../components/loading/loading-indicator.component';
 import { CenteredView } from '../../../components/utility/centered-view.component';
-
-const NoResultsText = styled.Text`
-  font-size: 20px;
-  font-weight: 500;
-`;
+import { NoResultsText } from '../../../components/utility/no-results-text.component';
 
 export const AddSneakerScreen = ({ navigation }) => {
   const theme = useTheme();

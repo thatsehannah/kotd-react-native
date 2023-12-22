@@ -3,6 +3,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import { loginRequest, registerRequest } from './auth.service';
 import { createUserCollection } from '../../infrastructure/firebase/crud/userCollection';
+import { createNewUser } from '../../infrastructure/firebase/crud/userAccount';
 
 export const AuthenticationContext = createContext();
 
@@ -12,14 +13,16 @@ export const AuthenticationContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const auth = getAuth();
 
-  onAuthStateChanged(auth, (usr) => {
-    if (usr) {
-      setUser(usr);
-    }
+  if (auth) {
+    // onAuthStateChanged(auth, (usr) => {
+    //   if (usr) {
+    //     setUser(usr);
+    //   }
+    //   setIsLoading(false);
+    // });
+  }
 
-    setIsLoading(false);
-  });
-
+  //TODO: change setUser to grab user from users collection in firestore
   const onLogin = (email, password) => {
     setError(null);
     setIsLoading(true);
@@ -34,18 +37,14 @@ export const AuthenticationContextProvider = ({ children }) => {
       });
   };
 
-  const onRegister = (email, password, repeatedPassword) => {
-    if (password != repeatedPassword) {
-      setIsLoading(false);
-      setError('Error: Passwords do not match');
-      return;
-    }
-
+  const onRegister = (newUser, password) => {
+    console.log(newUser);
     setError(null);
     setIsLoading(true);
-    registerRequest(auth, email, password)
+    registerRequest(auth, newUser.email, password)
       .then((data) => {
         setUser(data.user);
+        createNewUser(newUser, data.user.uid);
         createUserCollection(data.user.uid);
         setIsLoading(false);
       })

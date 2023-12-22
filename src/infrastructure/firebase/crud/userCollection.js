@@ -1,4 +1,3 @@
-import { useState, useContext } from 'react';
 import {
   doc,
   collection,
@@ -14,7 +13,6 @@ import { transformNewSneakerToCollectionData } from '../../../context/utility/fo
 
 export const createUserCollection = async (userId) => {
   const db = getDb();
-
   await setDoc(doc(db, 'collections', userId), {});
 };
 

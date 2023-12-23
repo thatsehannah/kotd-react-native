@@ -94,6 +94,7 @@ export const RegisterScreen = ({ navigation }) => {
     );
   };
 
+  //TODO: add birthday properties and think of other properties to add
   const createNewAccount = () => {
     const newUser = {
       fullname: formData.fullName,

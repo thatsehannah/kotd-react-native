@@ -32,9 +32,9 @@ export const AuthenticationContextProvider = ({ children }) => {
     loginRequest(auth, email, password)
       .then((data) => {
         getUser(data.user.uid).then((usr) => {
-          setUser(usr.data());
+          setUser(usr);
+          setIsLoading(false);
         });
-        setIsLoading(false);
       })
       .catch((e) => {
         setIsLoading(false);
@@ -47,10 +47,11 @@ export const AuthenticationContextProvider = ({ children }) => {
     setIsLoading(true);
     registerRequest(auth, newUser.email, password)
       .then((data) => {
-        setUser(data.user);
-        createNewUser(newUser, data.user.uid);
-        createUserCollection(data.user.uid);
-        setIsLoading(false);
+        createNewUser(newUser, data.user.uid).then((usr) => {
+          setUser(usr);
+          createUserCollection(usr.uid);
+          setIsLoading(false);
+        });
       })
       .catch((e) => {
         setIsLoading(false);

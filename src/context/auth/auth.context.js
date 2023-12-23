@@ -3,7 +3,10 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import { loginRequest, registerRequest } from './auth.service';
 import { createUserCollection } from '../../infrastructure/firebase/crud/userCollection';
-import { createNewUser } from '../../infrastructure/firebase/crud/userAccount';
+import {
+  createNewUser,
+  getUser,
+} from '../../infrastructure/firebase/crud/userAccount';
 
 export const AuthenticationContext = createContext();
 
@@ -28,7 +31,9 @@ export const AuthenticationContextProvider = ({ children }) => {
     setIsLoading(true);
     loginRequest(auth, email, password)
       .then((data) => {
-        setUser(data.user);
+        getUser(data.user.uid).then((usr) => {
+          setUser(usr.data());
+        });
         setIsLoading(false);
       })
       .catch((e) => {
@@ -38,7 +43,6 @@ export const AuthenticationContextProvider = ({ children }) => {
   };
 
   const onRegister = (newUser, password) => {
-    console.log(newUser);
     setError(null);
     setIsLoading(true);
     registerRequest(auth, newUser.email, password)

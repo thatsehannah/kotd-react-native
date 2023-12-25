@@ -5,6 +5,7 @@ import { loginRequest, registerRequest } from './auth.service';
 import { createUserCollection } from '../../infrastructure/firebase/crud/userCollection';
 import {
   createNewUser,
+  doesUsernameExist,
   getUser,
 } from '../../infrastructure/firebase/crud/userAccount';
 
@@ -42,21 +43,34 @@ export const AuthenticationContextProvider = ({ children }) => {
       });
   };
 
-  const onRegister = (newUser, password) => {
+  const onRegister = async (newUser, password) => {
     setError(null);
     setIsLoading(true);
-    registerRequest(auth, newUser.email, password)
-      .then((data) => {
-        createNewUser(newUser, data.user.uid).then((usr) => {
-          setUser(usr);
-          createUserCollection(usr.uid);
-          setIsLoading(false);
-        });
-      })
-      .catch((e) => {
+
+    try {
+      const usernameExist = await doesUsernameExist(newUser.username);
+
+      if (usernameExist) {
+        setError('Username already exists');
         setIsLoading(false);
-        setError(e.toString());
-      });
+        return;
+      }
+
+      registerRequest(auth, newUser.email, password)
+        .then((data) => {
+          createNewUser(newUser, data.user.uid).then((usr) => {
+            setUser(usr);
+            createUserCollection(usr.uid);
+            setIsLoading(false);
+          });
+        })
+        .catch((e) => {
+          setIsLoading(false);
+          setError(e.toString());
+        });
+    } catch (error) {
+      setError(error);
+    }
   };
 
   const onLogout = () => {

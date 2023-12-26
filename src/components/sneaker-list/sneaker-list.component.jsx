@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 import { Spacer } from '../spacer/spacer.component';
-import { Pressable, Text } from 'react-native';
+import { Button, Pressable } from 'react-native';
 import { SneakerCard } from '../sneaker-card/sneaker-card.component';
 import { CenteredView } from '../utility/centered-view.component';
 import { NoResultsText } from '../utility/no-results-text.component';
@@ -18,14 +18,9 @@ export const SneakerList = ({
   screen,
   cardButtonTxt,
 }) => {
-  // console.log('Date added: ', sneakers[0].releaseDate);
   return (
     <>
-      {sneakers.length === 0 ? (
-        <CenteredView>
-          <NoResultsText>Nothing in your collection just yet!</NoResultsText>
-        </CenteredView>
-      ) : (
+      {sneakers.length ? (
         <List
           data={sneakers}
           renderItem={({ item }) => {
@@ -48,6 +43,14 @@ export const SneakerList = ({
           }}
           keyExtractor={(item) => item.sku}
         />
+      ) : (
+        <CenteredView>
+          <NoResultsText>Your collection is empty!</NoResultsText>
+          <Button
+            title='Add'
+            onPress={() => navigation.navigate('AddSneaker')}
+          />
+        </CenteredView>
       )}
     </>
   );

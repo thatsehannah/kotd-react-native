@@ -34,7 +34,7 @@ export const UserCollectionContextProvider = ({ children }) => {
 
   return (
     <UserCollectionContext.Provider
-      value={{ collection, isCollectionLoading, error }}
+      value={{ collection, isCollectionLoading, error, retrieveCollection }}
     >
       {children}
     </UserCollectionContext.Provider>

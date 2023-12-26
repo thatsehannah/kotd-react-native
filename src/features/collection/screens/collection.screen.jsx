@@ -6,8 +6,12 @@ import { UserCollectionContext } from '../../../context/collection/collection.co
 import { useTheme } from 'styled-components/native';
 import { SneakerList } from '../../../components/sneaker-list/sneaker-list.component';
 import { LoadingIndicator } from '../../../components/loading/loading-indicator.component';
-import { Text } from 'react-native';
 import { AuthenticationContext } from '../../../context/auth/auth.context';
+import {
+  TitleContainer,
+  TitleText,
+  UsernameText,
+} from '../components/collection.styles';
 
 export const CollectionScreen = ({ navigation }) => {
   const { user } = useContext(AuthenticationContext);
@@ -21,9 +25,11 @@ export const CollectionScreen = ({ navigation }) => {
   return (
     <>
       <SafeAreaContainer>
-        <Text style={{ fontSize: 30, fontWeight: 600 }}>
-          {user.username}'s Collection
-        </Text>
+        <TitleContainer>
+          <TitleText>
+            <UsernameText>{user.username}'s</UsernameText> Collection
+          </TitleText>
+        </TitleContainer>
         <SneakerList
           navigation={navigation}
           sneakers={collection}
